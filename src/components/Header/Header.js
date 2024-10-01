@@ -10,23 +10,26 @@ import { MdOutlineLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { BiMessageRounded } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";
-import userImage from "../../assets/images/user.jpg";
+import userLogo from "../../assets/images/user.jpg";
 
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import GppMaybeIcon from '@mui/icons-material/GppMaybe';
+import GppMaybeIcon from "@mui/icons-material/GppMaybe";
+import Divider from "@mui/material/Divider";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpenNotificationDrop, setIsOpenNotificationDrop] = useState(false);
+  const [isOpenMessageDrop, setIsOpenMessageDrop] = useState(false);
   const openMyAccount = Boolean(anchorEl);
   const openNotifications = Boolean(isOpenNotificationDrop);
+  const openMessages = Boolean(isOpenMessageDrop);
+
   const handleOpenMyAccountDrop = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -34,11 +37,18 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const handleOpenNotificationDrop = () =>{
-    setIsOpenNotificationDrop(true)
-  }; 
-  const handleCloseNotificationDrop = () =>{
-    setIsOpenNotificationDrop(false)
+  const handleOpenNotificationDrop = () => {
+    setIsOpenNotificationDrop(true);
+  };
+  const handleCloseNotificationDrop = () => {
+    setIsOpenNotificationDrop(false);
+  };
+
+  const handleOpenMessageDrop = () => {
+    setIsOpenMessageDrop(true);
+  };
+  const handleCloseMessageDrop = () => {
+    setIsOpenMessageDrop(false);
   };
   return (
     <>
@@ -62,82 +72,574 @@ const Header = () => {
               <Button className="rounded-circle me-4">
                 <MdOutlineLightMode />
               </Button>
-              <Button className="rounded-circle me-4">
+              <Button
+                className="rounded-circle me-4"
+                onClick={handleOpenMessageDrop}
+              >
                 <BiMessageRounded />
               </Button>
-              <Button className="rounded-circle me-4" onClick={handleOpenNotificationDrop}>
+              <Menu
+                anchorEl={isOpenMessageDrop}
+                className="messages dropdown-list"
+                id="messages"
+                open={openMessages}
+                onClose={handleCloseMessageDrop}
+                onClick={handleCloseMessageDrop}
+                slotProps={{
+                  paper: {
+                    elevation: 0,
+                    sx: {
+                      overflow: "visible",
+                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                      mt: 1.5,
+                      "& .MuiAvatar-root": {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
+                      },
+                      "&::before": {
+                        content: '""',
+                        display: "block",
+                        position: "absolute",
+                        top: 0,
+                        right: 14,
+                        width: 10,
+                        height: 10,
+                        bgcolor: "background.paper",
+                        transform: "translateY(-50%) rotate(45deg)",
+                        zIndex: 0,
+                      },
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <div className="head ps-3 pb-2">
+                  <h4>Messages 12</h4>
+                </div>
+                <div className="scrollInfo">
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseMessageDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+                </div>
+                <div className="px-3 pt-2 w-100">
+                <Button className="btn-blue w-100">View All Notifications</Button>
+                </div>
+              </Menu>
+
+              <Button
+                className="rounded-circle me-4"
+                onClick={handleOpenNotificationDrop}
+              >
                 <IoNotificationsOutline />
               </Button>
               <Menu
-                    anchorEl={isOpenNotificationDrop}
-                    className="notifications"
-                    id="notifications"
-                    open={openNotifications}
-                    onClose={handleCloseNotificationDrop}
-                    onClick={handleCloseNotificationDrop}
-                    slotProps={{
-                      paper: {
-                        elevation: 0,
-                        sx: {
-                          overflow: "visible",
-                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                          mt: 1.5,
-                          "& .MuiAvatar-root": {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                          },
-                          "&::before": {
-                            content: '""',
-                            display: "block",
-                            position: "absolute",
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: "background.paper",
-                            transform: "translateY(-50%) rotate(45deg)",
-                            zIndex: 0,
-                          },
-                        },
+                anchorEl={isOpenNotificationDrop}
+                className="notifications dropdown-list"
+                id="notifications"
+                open={openNotifications}
+                onClose={handleCloseNotificationDrop}
+                onClick={handleCloseNotificationDrop}
+                slotProps={{
+                  paper: {
+                    elevation: 0,
+                    sx: {
+                      overflow: "visible",
+                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                      mt: 1.5,
+                      "& .MuiAvatar-root": {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
                       },
-                    }}
-                    transformOrigin={{ horizontal: "right", vertical: "top" }}
-                    anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-                  >
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <Avatar /> Profile
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <Avatar /> My account
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                      </ListItemIcon>
-                      Add another account
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <ListItemIcon>
-                        <Settings fontSize="small" />
-                      </ListItemIcon>
-                      Settings
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <ListItemIcon>
-                        <GppMaybeIcon fontSize="small"/>
-                      </ListItemIcon>
-                      Reset Password
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseNotificationDrop}>
-                      <ListItemIcon>
-                        <Logout fontSize="small" />
-                      </ListItemIcon>
-                      Logout
-                    </MenuItem>
-                  </Menu>
+                      "&::before": {
+                        content: '""',
+                        display: "block",
+                        position: "absolute",
+                        top: 0,
+                        right: 14,
+                        width: 10,
+                        height: 10,
+                        bgcolor: "background.paper",
+                        transform: "translateY(-50%) rotate(45deg)",
+                        zIndex: 0,
+                      },
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <div className="head ps-3 pb-2">
+                  <h4>Order 12</h4>
+                </div>
+                <div className="scrollInfo">
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseNotificationDrop}>
+                    <div className="d-flex">
+                      <div>
+                        <div className="userImg">
+                          <span className="rounded-circle">
+                            <img src={userLogo} alt="user logo" />
+                          </span>
+                        </div>
+                      </div>
+                      <div class="dropdownInfo">
+                        <h4>
+                          <span>
+                            <b>Chandrashekhar </b>added to his favorite quot
+                            <b> Never quote</b>
+                          </span>
+                        </h4>
+                        <p class="text-sky mb-0">few seconds ago</p>
+                      </div>
+                    </div>
+                  </MenuItem>
+                </div>
+                <div className="px-3 pt-2 w-100">
+                <Button className="btn-blue w-100">View All Notifications</Button>
+                </div>
+                
+              </Menu>
 
               <div className="myAccWrapper">
                 <Button
@@ -146,7 +648,7 @@ const Header = () => {
                 >
                   <div className="userImg">
                     <span className="rounded-circle">
-                      <img src={userImage} alt="user image" />
+                      <img src={userLogo} alt="user logo" />
                     </span>
                   </div>
                   <div className="userInfo">
@@ -155,74 +657,74 @@ const Header = () => {
                   </div>
                 </Button>
                 <Menu
-                    anchorEl={anchorEl}
-                    id="account-menu"
-                    open={openMyAccount}
-                    onClose={handleCloseMyAccountDrop}
-                    onClick={handleCloseMyAccountDrop}
-                    slotProps={{
-                      paper: {
-                        elevation: 0,
-                        sx: {
-                          overflow: "visible",
-                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                          mt: 1.5,
-                          "& .MuiAvatar-root": {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                          },
-                          "&::before": {
-                            content: '""',
-                            display: "block",
-                            position: "absolute",
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: "background.paper",
-                            transform: "translateY(-50%) rotate(45deg)",
-                            zIndex: 0,
-                          },
+                  anchorEl={anchorEl}
+                  id="account-menu"
+                  open={openMyAccount}
+                  onClose={handleCloseMyAccountDrop}
+                  onClick={handleCloseMyAccountDrop}
+                  slotProps={{
+                    paper: {
+                      elevation: 0,
+                      sx: {
+                        overflow: "visible",
+                        filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                        mt: 1.5,
+                        "& .MuiAvatar-root": {
+                          width: 32,
+                          height: 32,
+                          ml: -0.5,
+                          mr: 1,
+                        },
+                        "&::before": {
+                          content: '""',
+                          display: "block",
+                          position: "absolute",
+                          top: 0,
+                          right: 14,
+                          width: 10,
+                          height: 10,
+                          bgcolor: "background.paper",
+                          transform: "translateY(-50%) rotate(45deg)",
+                          zIndex: 0,
                         },
                       },
-                    }}
-                    transformOrigin={{ horizontal: "right", vertical: "top" }}
-                    anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-                  >
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <Avatar /> Profile
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <Avatar /> My account
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                      </ListItemIcon>
-                      Add another account
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <ListItemIcon>
-                        <Settings fontSize="small" />
-                      </ListItemIcon>
-                      Settings
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <ListItemIcon>
-                        <GppMaybeIcon fontSize="small"/>
-                      </ListItemIcon>
-                      Reset Password
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseMyAccountDrop}>
-                      <ListItemIcon>
-                        <Logout fontSize="small" />
-                      </ListItemIcon>
-                      Logout
-                    </MenuItem>
-                  </Menu>
+                    },
+                  }}
+                  transformOrigin={{ horizontal: "right", vertical: "top" }}
+                  anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                >
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <Avatar /> Profile
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <Avatar /> My account
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <ListItemIcon>
+                      <PersonAdd fontSize="small" />
+                    </ListItemIcon>
+                    Add another account
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <ListItemIcon>
+                      <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <ListItemIcon>
+                      <GppMaybeIcon fontSize="small" />
+                    </ListItemIcon>
+                    Reset Password
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </Menu>
               </div>
             </div>
           </div>

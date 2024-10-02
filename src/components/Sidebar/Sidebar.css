@@ -5,7 +5,23 @@
     top: 70px;
     left: 0px;
     background: #fff;
+    max-height: calc(100% - 70px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 40px;
 }
+
+.main .sidebarWrapper .sidebar::-webkit-scrollbar {
+    width: 3px !important;
+}
+.main .sidebarWrapper .sidebar::-webkit-scrollbar-thumb{
+ background-color: transparent !important;
+}
+
+.main .sidebarWrapper:hover .sidebar::-webkit-scrollbar-thumb {
+  background: #0858f7 !important;
+}
+
 
 .main .sidebarWrapper .sidebar ul {
     margin-bottom: 0px;
@@ -13,17 +29,18 @@
 
 .main .sidebarWrapper .sidebar ul li {
     list-style: none;
+    padding: 0px 10px !important;
 }
 
 .main .sidebarWrapper .sidebar ul li button {
-    color: #000;
+    color: #5e5d72 !important;
     text-align: left;
     justify-content: start;
-    border-radius: 0px !important;
-    padding: 12px 15px !important;
+    border-radius: 10px !important;
+    padding: 12px 10px !important;
     align-items: center !important;
     text-transform: capitalize !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
 
 .main .sidebarWrapper .sidebar ul li button .icon {
@@ -41,6 +58,10 @@
     font-size: 22px;
 }
 
+.main .sidebarWrapper .sidebar ul li button * {
+    color: #5e5d72 !important;
+}
+
 .main .sidebarWrapper .sidebar ul li button .arrowIcon {
     margin-left: auto;
     display: flex;
@@ -48,4 +69,8 @@
     justify-content: center;
     width: 25px;
     height: 25px;
+}
+
+.main .sidebarWrapper .sidebar ul li button:hover {
+    background: #f1f1f1 !important;
 }

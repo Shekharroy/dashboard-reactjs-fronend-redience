@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/dashboard-reactjs-fronend-redience/static/css/main.9740c020.css",
-    "main.js": "/dashboard-reactjs-fronend-redience/static/js/main.4df34c86.js",
+    "main.css": "/dashboard-reactjs-fronend-redience/static/css/main.10de07f6.css",
+    "main.js": "/dashboard-reactjs-fronend-redience/static/js/main.860734f8.js",
     "static/js/453.28244352.chunk.js": "/dashboard-reactjs-fronend-redience/static/js/453.28244352.chunk.js",
     "static/media/user.jpg": "/dashboard-reactjs-fronend-redience/static/media/user.5744c3acc2a095b66dae.jpg",
     "static/media/Radiance-Solutions-logo.png": "/dashboard-reactjs-fronend-redience/static/media/Radiance-Solutions-logo.930c33d63cc0e0d99a6d.png",
     "index.html": "/dashboard-reactjs-fronend-redience/index.html",
-    "main.9740c020.css.map": "/dashboard-reactjs-fronend-redience/static/css/main.9740c020.css.map",
-    "main.4df34c86.js.map": "/dashboard-reactjs-fronend-redience/static/js/main.4df34c86.js.map",
+    "main.10de07f6.css.map": "/dashboard-reactjs-fronend-redience/static/css/main.10de07f6.css.map",
+    "main.860734f8.js.map": "/dashboard-reactjs-fronend-redience/static/js/main.860734f8.js.map",
     "453.28244352.chunk.js.map": "/dashboard-reactjs-fronend-redience/static/js/453.28244352.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9740c020.css",
-    "static/js/main.4df34c86.js"
+    "static/css/main.10de07f6.css",
+    "static/js/main.860734f8.js"
   ]
 }

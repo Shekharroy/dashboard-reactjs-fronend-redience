@@ -1,0 +1,49 @@
+.right-content {
+    padding: 90px 30px;
+}
+
+.dashboardBoxWrapper {
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.dashboardRowWrapper .box {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboardRowWrapper .graphbox {
+    background-image: linear-gradient(#1a50b5, #216ff7);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.graphbox .toggleIcon {
+    font-size: 22px; 
+    color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+}
+
+.graphbox .toggleIcon svg {
+    color: #fff !important;
+    font-size: 20px !important;
+    opacity: 1 !important;
+
+}
+
+.graphbox h6 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.graphbox p {
+    font-size: 13px;
+    opacity:0.7;
+    color: #fff;
+}
+

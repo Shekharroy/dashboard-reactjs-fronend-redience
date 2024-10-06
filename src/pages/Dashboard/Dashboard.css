@@ -47,3 +47,19 @@
     color: #fff;
 }
 
+
+/**
+* Data Table
+*/
+
+.card {
+    margin: 25px 0px;
+    border-radius: 10px;
+}
+
+.card .hd {
+    font-size: 18px;
+    font-weight: 600;
+    color: #403e57;
+}
+

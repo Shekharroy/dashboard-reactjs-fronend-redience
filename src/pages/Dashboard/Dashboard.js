@@ -118,11 +118,21 @@ const Dashboard = () => {
               <Chart
                 chartType="LineChart"
                 width="100%"
-                height="calc(100% - 22%)"
+                height="170px"
                 data={data}
                 options={chartOptions}
                 legendToggle
               />
+            </div>
+          </div>
+        </div>
+
+        <div className="card shadow border-0 p-3 mt-4">
+          <h3 className="hd">Business Report Table</h3>
+
+          <div className="row">
+            <div className="col">
+              <h6>SHOW BY</h6>
             </div>
           </div>
         </div>

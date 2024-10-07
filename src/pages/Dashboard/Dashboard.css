@@ -63,3 +63,47 @@
     color: #403e57;
 }
 
+.cardFilters .col-md-3 h6 {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: #403e57;
+}
+
+.table .table-dark th {
+    background-color: #1866ee !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #403e57;
+}
+
+.table tbody td {
+    font-size: 13px !important;
+    color: #403e57 !important;
+    font-weight: 500;
+}
+
+.table tbody .actions button{
+    min-width: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.table tbody .actions button .secondary {
+    background-color: rgba(203, 60, 231, 0.1) !important;
+}
+.table tbody .actions button .success {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+}
+.table tbody .actions button .error {
+    background-color: rgba(255, 0, 0, 0.1) !important;
+}
+/* .table tbody .actions button svg {
+    font-size: 32px !important;
+} */
+
+

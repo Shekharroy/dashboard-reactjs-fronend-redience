@@ -12,6 +12,12 @@ import { PiToolboxFill } from "react-icons/pi";
 import { FaKey } from "react-icons/fa6";
 
 import { Chart } from "react-google-charts";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
+import { MdRemoveRedEye } from "react-icons/md";
+import { MdOutlineModeEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const options = ["None", "Last Day", "Last Week", "Last Month", "Last Year"];
 
@@ -36,18 +42,27 @@ export const chartOptions = {
   vAxis: {
     textStyle: { color: "#FFF" },
   },
-  legendTextStyle: { color: '#FFF' },
-  titleTextStyle: { color: '#FFF' },
+  legendTextStyle: { color: "#FFF" },
+  titleTextStyle: { color: "#FFF" },
 };
 
 const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [filterById, setfilterById] = useState("");
+  const [filterByCategory, setfilterByCategory] = useState("");
+  const [filterByName, setfilterByName] = useState("");
+  const [filterByType, setfilterByType] = useState("");
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleChange = (event) => {
+    setfilterById(event.target.value);
   };
 
   return (
@@ -130,10 +145,309 @@ const Dashboard = () => {
         <div className="card shadow border-0 p-3 mt-4">
           <h3 className="hd">Business Report Table</h3>
 
-          <div className="row">
-            <div className="col">
-              <h6>SHOW BY</h6>
+          <div className="row cardFilters mt-3 p-2">
+            <div className="col-md-3">
+              <h6>BY ID</h6>
+              <FormControl sx={{ minWidth: "100%" }} size="small">
+                <Select
+                  value={filterById}
+                  onChange={(e)=>setfilterById(e.target.value)}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
             </div>
+
+            <div className="col-md-3">
+              <h6>BY NAME</h6>
+              <FormControl sx={{ minWidth: "100%" }} size="small">
+                <Select
+                  value={filterByName}
+                  onChange={(e)=>setfilterByName(e.target.value)}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+
+            <div className="col-md-3">
+              <h6>BY CATEGORY</h6>
+              <FormControl sx={{ minWidth: "100%" }} size="small">
+                <Select
+                  value={filterByCategory}
+                  onChange={(e)=>setfilterByCategory(e.target.value)}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+
+            <div className="col-md-3">
+              <h6>STATUS TYPE</h6>
+              <FormControl sx={{ minWidth: "100%" }} size="small">
+                <Select
+                  value={filterByType}
+                  onChange={(e)=>setfilterByType(e.target.value)}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+          </div>
+
+          <div className="table-responsive mt-3">
+            <table className="table table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>UID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Language</th>
+                  <th>Create Date</th>
+                  <th>Update Date</th>
+                  <th>Status Type</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#1</td>
+                  <td>Testing Template</td>
+                  <td>Marketing</td>
+                  <td>en-US</td>
+                  <td>07-10-2024 09:31</td>
+                  <td>07-10-2024 09:32.</td>
+                  <td>APPROVED</td>
+                  <td>
+                    <div className="actions d-flex align-items-center">
+                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
+                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
+                      <Button className="error" color="error"><MdDelete/></Button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

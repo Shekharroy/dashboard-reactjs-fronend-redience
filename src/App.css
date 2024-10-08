@@ -1,11 +1,20 @@
 .main .sidebarWrapper{
     width: 20%;
     flex: 0 0 20%;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s 
 }
 
+.main .sidebarWrapper.toggle {
+    width: 0%;
+    flex: 0 0 0%;
+}
 .main .content {
     width: 80%;
     flex: 0 0 80%;
+    transition: all 0.3s;
+}
+.main .content.toggle {
+    width: 100%;
+    flex: 0 0 100%;
 }
 

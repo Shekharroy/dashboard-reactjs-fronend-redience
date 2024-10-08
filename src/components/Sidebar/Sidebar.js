@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Sidebar.css";
 import { Button } from "@mui/material";
 import { RiDashboardHorizontalFill } from "react-icons/ri";
@@ -14,12 +14,15 @@ import { IoMdSettings } from "react-icons/io";
 import { LuLogOut } from "react-icons/lu";
 
 import { Link } from "react-router-dom";
+import { MyContext } from "../../App";
 
 const Sidebar = () => {
 
     const [activeTab, setActiveTab] = useState(0);
 
      const [isToggle, setIsToggle] = useState(false);
+
+     const context = useContext(MyContext)
 
     const isOpenSubmenu = (index) => {
         console.log("Index === ",index);

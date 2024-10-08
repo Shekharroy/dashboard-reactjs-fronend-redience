@@ -9,6 +9,12 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 40px;
+    transition: all 0.3s;
+}
+
+.main .sidebarWrapper.toggle .sidebar {
+    left: -100%;
+    opacity: 0;
 }
 
 .main .sidebarWrapper .sidebar::-webkit-scrollbar {

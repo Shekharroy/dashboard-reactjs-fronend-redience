@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Radiance-Solutions-logo.png";
@@ -21,6 +21,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import GppMaybeIcon from "@mui/icons-material/GppMaybe";
 import Divider from "@mui/material/Divider";
+import { MyContext } from "../../App";
+
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -29,6 +31,9 @@ const Header = () => {
   const openMyAccount = Boolean(anchorEl);
   const openNotifications = Boolean(isOpenNotificationDrop);
   const openMessages = Boolean(isOpenMessageDrop);
+
+  const context = useContext(MyContext)
+
 
   const handleOpenMyAccountDrop = (event) => {
     setAnchorEl(event.currentTarget);
@@ -63,8 +68,12 @@ const Header = () => {
               </Link>
             </div>
             <div className="col-sm-3 part-2 d-flex align-items-center ps-4">
-              <Button className="rounded-circle me-4">
-                <MdOutlineMenuOpen />
+              <Button className="rounded-circle me-4" onClick={()=>context.setIsToggleSidebar(!context.isToggleSidebar)}>
+
+                {
+                  context.isToggleSidebar === false ? <MdOutlineMenuOpen /> :<MdOutlineMenu/>
+                }
+                
               </Button>
               <SearchBox />
             </div>

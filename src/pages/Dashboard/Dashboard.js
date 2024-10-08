@@ -19,29 +19,23 @@ import { MdRemoveRedEye } from "react-icons/md";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
+import Pagination from "@mui/material/Pagination";
+
 const options = ["None", "Last Day", "Last Week", "Last Month", "Last Year"];
 
 const ITEM_HEIGHT = 35;
 
 export const data = [
-  ["Year", "Sales", "Expenses"],
-  ["2004", 1000, 400],
-  ["2005", 1170, 460],
-  ["2006", 660, 1120],
-  ["2007", 1030, 540],
+  ["Task", "Hours per Day"],
+  ["Work", 10],
+  ["Eat", 2],
+  ["Commute", 2],
+  ["Sleep", 8],
 ];
 
 export const chartOptions = {
-  title: "Company Performance",
-  curveType: "function",
-  legend: { position: "bottom" },
+  title: "My Daily Activities",
   backgroundColor: "transparent",
-  hAxis: {
-    textStyle: { color: "#FFF" },
-  },
-  vAxis: {
-    textStyle: { color: "#FFF" },
-  },
   legendTextStyle: { color: "#FFF" },
   titleTextStyle: { color: "#FFF" },
 };
@@ -131,12 +125,11 @@ const Dashboard = () => {
               <p>$36784599.78 in the last month</p>
 
               <Chart
-                chartType="LineChart"
-                width="100%"
-                height="170px"
+                chartType="PieChart"
                 data={data}
                 options={chartOptions}
-                legendToggle
+                width={"100%"}
+                height="calc(100% -90%)"
               />
             </div>
           </div>
@@ -151,7 +144,7 @@ const Dashboard = () => {
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select
                   value={filterById}
-                  onChange={(e)=>setfilterById(e.target.value)}
+                  onChange={(e) => setfilterById(e.target.value)}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -170,7 +163,7 @@ const Dashboard = () => {
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select
                   value={filterByName}
-                  onChange={(e)=>setfilterByName(e.target.value)}
+                  onChange={(e) => setfilterByName(e.target.value)}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -189,7 +182,7 @@ const Dashboard = () => {
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select
                   value={filterByCategory}
-                  onChange={(e)=>setfilterByCategory(e.target.value)}
+                  onChange={(e) => setfilterByCategory(e.target.value)}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -208,7 +201,7 @@ const Dashboard = () => {
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select
                   value={filterByType}
-                  onChange={(e)=>setfilterByType(e.target.value)}
+                  onChange={(e) => setfilterByType(e.target.value)}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -224,7 +217,7 @@ const Dashboard = () => {
           </div>
 
           <div className="table-responsive mt-3">
-            <table className="table table-bordered">
+            <table className="table table-bordered v-align">
               <thead className="table-dark">
                 <tr>
                   <th>UID</th>
@@ -248,9 +241,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -264,9 +263,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -280,9 +285,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -296,9 +307,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -312,9 +329,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -328,9 +351,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -344,9 +373,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -360,9 +395,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -376,9 +417,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -392,9 +439,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -408,9 +461,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -424,9 +483,15 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
@@ -440,14 +505,32 @@ const Dashboard = () => {
                   <td>APPROVED</td>
                   <td>
                     <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary"><MdRemoveRedEye/></Button>
-                      <Button className="success" color="success"><MdOutlineModeEdit/></Button>
-                      <Button className="error" color="error"><MdDelete/></Button>
+                      <Button className="secondary" color="secondary">
+                        <MdRemoveRedEye />
+                      </Button>
+                      <Button className="success" color="success">
+                        <MdOutlineModeEdit />
+                      </Button>
+                      <Button className="error" color="error">
+                        <MdDelete />
+                      </Button>
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
+            <div className="d-flex tableFooter">
+              <p>
+                showing <b>12</b> of <b>60</b> results
+              </p>
+              <Pagination
+                count={100}
+                color="primary"
+                className="pagination"
+                showFirstButton
+                showLastButton
+              />
+            </div>
           </div>
         </div>
       </div>

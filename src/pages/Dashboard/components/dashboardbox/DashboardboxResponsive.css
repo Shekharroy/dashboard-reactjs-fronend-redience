@@ -1,0 +1,10 @@
+@media only screen and (min-width:320px) and (max-width:992px) {
+    .dashboardBoxWrapper .dashboardBox {
+            display: inline-block !important;
+            width: 340px !important;
+            min-width: 340px !important;
+            height: 160px !important;
+            margin-right: 15px !important;
+            flex-wrap: nowrap !important;
+    }
+}

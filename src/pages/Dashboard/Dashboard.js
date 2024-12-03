@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Dashboard.css";
+import "./DashboardResponsive.css"
 import DashboardBox from "./components/dashboardbox/DashboardBox";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -15,11 +16,11 @@ import { Chart } from "react-google-charts";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-import { MdRemoveRedEye } from "react-icons/md";
-import { MdOutlineModeEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
-
 import Pagination from "@mui/material/Pagination";
+import DataTable from "../../components/User/DataTable";
+import axios from "axios";
+import { MyContext } from "../../App";
+import Footer from "../../components/Footer/Footer";
 
 const options = ["None", "Last Day", "Last Week", "Last Month", "Last Year"];
 
@@ -46,6 +47,13 @@ const Dashboard = () => {
   const [filterByCategory, setfilterByCategory] = useState("");
   const [filterByName, setfilterByName] = useState("");
   const [filterByType, setfilterByType] = useState("");
+  const [parentIdList, setParentIdList] = useState(null);
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
+
+  const context = useContext(MyContext);
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -59,6 +67,22 @@ const Dashboard = () => {
     setfilterById(event.target.value);
   };
 
+  const fetchDataPidList = async () => {
+    const response = await axios.get(
+      "http://103.170.58.161:8080/whatsapp/user/getall",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem('jwtToken')} `},
+      }
+    );
+    setParentIdList(response.data);
+    console.log("responseresponse ==> ",response)
+    return parentIdList;
+  };
+
+  
   return (
     <>
       <div className="right-content w-100">
@@ -135,16 +159,18 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="card shadow border-0 p-3 mt-4">
+        <div className="card shadow border-0 p-3 mt-4 bussinessRepot">
           <h3 className="hd">Business Report Table</h3>
 
           <div className="row cardFilters mt-3 p-2">
             <div className="col-md-3">
-              <h6>BY ID</h6>
+              <h6>BY PARENT ID</h6>
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select
                   value={filterById}
-                  onChange={(e) => setfilterById(e.target.value)}
+                  onChange={(e) => {
+                    setfilterById(e.target.value);
+                  }}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -216,309 +242,11 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="table-responsive mt-3">
-            <table className="table table-bordered v-align">
-              <thead className="table-dark">
-                <tr>
-                  <th>UID</th>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Language</th>
-                  <th>Create Date</th>
-                  <th>Update Date</th>
-                  <th>Status Type</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#1</td>
-                  <td>Testing Template</td>
-                  <td>Marketing</td>
-                  <td>en-US</td>
-                  <td>07-10-2024 09:31</td>
-                  <td>07-10-2024 09:32.</td>
-                  <td>APPROVED</td>
-                  <td>
-                    <div className="actions d-flex align-items-center">
-                      <Button className="secondary" color="secondary">
-                        <MdRemoveRedEye />
-                      </Button>
-                      <Button className="success" color="success">
-                        <MdOutlineModeEdit />
-                      </Button>
-                      <Button className="error" color="error">
-                        <MdDelete />
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="table-responsive mt-3 w-100 overflow-x-auto">
+            {/* <DataTable/> */}
+            {/* {
+              context.viewUserDetails === true ? <UserDetails/> :<DataTable/>
+            } */}
             <div className="d-flex tableFooter">
               <p>
                 showing <b>12</b> of <b>60</b> results
@@ -532,6 +260,10 @@ const Dashboard = () => {
               />
             </div>
           </div>
+          {/* <div className="card shadow border-0 p-3 mt-4 bussinessRepot b2class">
+            <Footer />
+          </div> */}
+          {/* <Footer /> */}
         </div>
       </div>
     </>

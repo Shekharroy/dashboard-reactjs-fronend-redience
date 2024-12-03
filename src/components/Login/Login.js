@@ -7,7 +7,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
 import axios from "axios";
 
-function Login({ switchToRegister }) {
+function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState(null);
@@ -35,12 +35,18 @@ function Login({ switchToRegister }) {
       console.log("RESPONSE RECEIVED:", res);
       setResponse(res.data); // Save the response to state or handle it as needed
       localStorage.setItem("jwtToken", res.data.jwtToken); // Assuming jwtToken is in res.data
-      context.setIsLogIn(true);
+      handleLogIn();
       return response;
     } catch (error) {
       console.error("AXIOS ERROR:", error);
     }
   };
+
+  const handleLogIn = ()=>{
+    context.setIsLogIn(true);
+    localStorage.setItem('isLogIn', 'true'); // Store login state
+  }
+ 
 
   // Function to toggle the password visibility
   const togglePasswordVisibility = () => {
@@ -69,6 +75,7 @@ function Login({ switchToRegister }) {
                   onChange={(e)=>{setUserName(e.target.value)}}
                   id="usercheck"
                   placeholder="usreid"
+                  autoFocus
                 />
               </div>
 
@@ -101,8 +108,7 @@ function Login({ switchToRegister }) {
                 <button
                   className="btn btn-primary"
                   type="submit"
-                  onClick={callApi}
-                >
+                  onClick={callApi}>
                   Log In
                 </button>
               </div>
@@ -110,21 +116,21 @@ function Login({ switchToRegister }) {
           {/* </form> */}
 
           <div className="row d-flex align-items-center justify-content-between w-50">
-            <div className="col-md-6">
+            <div className="col-md-6 offset-md-4">
               <p>
                 <Link to={"/forgot-password"} className="link">
                   FORGOT PASSWORD
                 </Link>
               </p>
             </div>
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <p>
                 Not a member?
-                <Link onClick={switchToRegister} to={"/register"}>
+                <Link onClick={switchToRegister} to={"/"}>
                   Register
                 </Link>
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

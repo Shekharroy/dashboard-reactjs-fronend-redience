@@ -34,32 +34,4 @@
     padding:20px;
     background: #fff;
 }
-.registerForm .logo {
-    text-decoration: none;
-  }
-  
-  .registerForm .logo img {
-    width: 70px;
-  }
-  
-  .registerForm .logo span {
-    color: #292929;
-    font-weight: 900;
-    font-size: 24px;
-    text-transform: uppercase;
-  }
-  .custom-icons .csicons{
-    cursor: pointer;
-    min-width: 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-  }
- 
-
-  .custom-icons .csicons svg {
-    font-size: 20px !important;
-    opacity: 1 !important;
-
-}
  

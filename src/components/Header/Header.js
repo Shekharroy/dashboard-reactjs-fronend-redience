@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Header.css";
+import "./HeaderResponsive.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Radiance-Solutions-logo.png";
 import Button from "@mui/material/Button";
@@ -22,12 +23,29 @@ import Logout from "@mui/icons-material/Logout";
 import GppMaybeIcon from "@mui/icons-material/GppMaybe";
 import Divider from "@mui/material/Divider";
 import { MyContext } from "../../App";
+import { IoMenu } from "react-icons/io5";
 
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isOpenNotificationDrop, setIsOpenNotificationDrop] = useState(false);
   const [isOpenMessageDrop, setIsOpenMessageDrop] = useState(false);
+  const [username, setUsername] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+
+  useEffect(()=>{
+
+    const currentUser = localStorage.getItem("currentuser");
+    if(currentUser){
+      const currentUserParsed = JSON.parse(currentUser);
+      setUsername(currentUserParsed.username);
+      setFirstName(currentUserParsed.firstName);
+      setLastName(currentUserParsed.lastName);
+
+    }
+
+  },[])
 
 
   const openMyAccount = Boolean(anchorEl);
@@ -35,6 +53,12 @@ const Header = () => {
   const openMessages = Boolean(isOpenMessageDrop);
 
   const context = useContext(MyContext)
+
+  const handleLogout = () =>{
+    alert('Header logout')
+    context.setIsLogIn(false);
+    localStorage.setItem('isLogIn', 'false'); // Clear login state
+  }
 
 
   const handleOpenMyAccountDrop = (event) => {
@@ -69,18 +93,31 @@ const Header = () => {
                 <span className="ms-1">Rediance</span>
               </Link>
             </div>
-            <div className="col-sm-3 part-2 d-flex align-items-center ps-4">
-              <Button className="rounded-circle me-4" onClick={()=>context.setIsToggleSidebar(!context.isToggleSidebar)}>
+            {context.windowWidth > 992 && (
+              <div className="col-sm-3 part-2 d-flex align-items-center ps-4">
+                <Button
+                  className="rounded-circle me-4"
+                  onClick={() =>
+                    context.setIsToggleSidebar(!context.isToggleSidebar)
+                  }
+                >
+                  {context.isToggleSidebar === false ? (
+                    <MdOutlineMenuOpen />
+                  ) : (
+                    <MdOutlineMenu />
+                  )}
+                </Button>
+                <SearchBox />
+              </div>
+            )}
 
-                {
-                  context.isToggleSidebar === false ? <MdOutlineMenuOpen /> :<MdOutlineMenu/>
-                }
-                
-              </Button>
-              <SearchBox />
-            </div>
-            <div className="col-sm-7 part-2 d-flex align-items-center justify-content-end">
-              <Button className="rounded-circle me-4">
+            <div className="col-sm-7 part-3 d-flex align-items-center justify-content-end">
+              <Button
+                className="rounded-circle me-4"
+                onClick={() => {
+                  context.setThemeMode(!context.themeMode);
+                }}
+              >
                 <MdOutlineLightMode />
               </Button>
               <Button
@@ -363,12 +400,14 @@ const Header = () => {
                   </MenuItem>
                 </div>
                 <div className="px-3 pt-2 w-100">
-                <Button className="btn-blue w-100">View All Notifications</Button>
+                  <Button className="btn-blue w-100">
+                    View All Notifications
+                  </Button>
                 </div>
               </Menu>
 
               <Button
-                className="rounded-circle me-4"
+                className="rounded-circle me-4 res-hide"
                 onClick={handleOpenNotificationDrop}
               >
                 <IoNotificationsOutline />
@@ -647,16 +686,17 @@ const Header = () => {
                   </MenuItem>
                 </div>
                 <div className="px-3 pt-2 w-100">
-                <Button className="btn-blue w-100">View All Notifications</Button>
+                  <Button className="btn-blue w-100">
+                    View All Notifications
+                  </Button>
                 </div>
-                
               </Menu>
 
+              <Button className="rounded-circle me-4" onClick={()=>context.openNav()}>
+                <IoMenu />
+              </Button>
 
-              
               {/* <Button className="btn-blue"> Sign In </Button> */}
-
-
 
               <div className="myAccWrapper">
                 <Button
@@ -668,9 +708,11 @@ const Header = () => {
                       <img src={userLogo} alt="user logo" />
                     </span>
                   </div>
-                  <div className="userInfo">
-                    <h4>Chandrashekhar Kumar</h4>
-                    <p className="mb-0">@Shekhar</p>
+                  <div className="userInfo hide-name-id">
+                    <h4>
+                      {firstName} {lastName}
+                    </h4>
+                    <p className="mb-0">{username}</p>
                   </div>
                 </Button>
                 <Menu
@@ -735,12 +777,19 @@ const Header = () => {
                     </ListItemIcon>
                     Reset Password
                   </MenuItem>
-                  <MenuItem onClick={handleCloseMyAccountDrop}>
+                  {/* <Link to={"/login"}> */}
+                  <MenuItem
+                    onClick={() => {
+                      handleCloseMyAccountDrop();
+                      handleLogout();
+                    }}
+                  >
                     <ListItemIcon>
                       <Logout fontSize="small" />
                     </ListItemIcon>
                     Logout
                   </MenuItem>
+                  {/* </Link> */}
                 </Menu>
               </div>
             </div>

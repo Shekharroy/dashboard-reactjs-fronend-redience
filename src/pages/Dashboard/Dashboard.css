@@ -1,128 +1,204 @@
 .right-content {
-    padding: 90px 30px;
+  padding: 90px 30px;
 }
 
 .dashboardBoxWrapper {
-    gap: 20px;
-    width: 100%;
-    flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .dashboardRowWrapper .box {
-    width: 100%;
-    height: 98%;
+  width: 100%;
+  height: 98%;
 }
 
 .dashboardRowWrapper .graphbox {
-    background-image: linear-gradient(#1a50b5, #216ff7);
-    border-radius: 10px;
-    padding: 25px;
+  background-image: linear-gradient(#1a50b5, #216ff7);
+  border-radius: 10px;
+  padding: 25px;
 }
 
 .graphbox .toggleIcon {
-    font-size: 22px; 
-    color: rgba(0,0,0,0.5);
-    cursor: pointer;
-    min-width: 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  min-width: 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
 }
 
 .graphbox .toggleIcon svg {
-    color: #fff !important;
-    font-size: 20px !important;
-    opacity: 1 !important;
-
+  color: #fff !important;
+  font-size: 20px !important;
+  opacity: 1 !important;
 }
 
 .graphbox h6 {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .graphbox p {
-    font-size: 13px;
-    opacity:0.7;
-    color: #fff;
+  font-size: 13px;
+  opacity: 0.7;
+  color: #fff;
 }
-
 
 /**
 * Data Table
 */
 
 .card {
-    margin: 25px 0px;
-    border-radius: 10px;
+  margin: 25px 0px;
+  border-radius: 10px;
+}
+
+body.dark .card {
+  background: #112143;
 }
 
 .card .hd {
-    font-size: 18px;
-    font-weight: 600;
-    color: #403e57;
+  font-size: 18px;
+  font-weight: 600;
+  color: #403e57;
+}
+
+body.dark .card .hd {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .cardFilters .col-md-3 h6 {
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: capitalize;
-    color: #403e57;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: capitalize;
+  color: #403e57;
+}
+
+body.dark .cardFilters .col-md-3 h6 {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .table .table-dark th {
-    background-color: #1866ee !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    font-size: 13px !important;
-    text-transform: uppercase !important;
+  background-color: #1866ee !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #403e57;
+body.dark .table .table-dark th {
+    background-color: transparent !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #403e57;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .table tbody td {
-    font-size: 13px !important;
-    color: #403e57 !important;
-    font-weight: 500;
+  font-size: 13px !important;
+  color: #403e57 !important;
+  font-weight: 500;
 }
 
-.table tbody .actions button{
-    min-width: 32px !important;
-    width: 32px !important;
-    height: 32px !important;
+body.dark .table tbody td {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.dark .table-bordered td, body.dark .table-bordered th {
+    border: 1px solid, rgba(255, 255, 255, 0.1) !important;
+}
+
+.table tbody .actions button {
+  min-width: 32px !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .table tbody .actions button .secondary {
-    background: rgba(203, 60, 231, 0.2) !important;
+  background: rgba(203, 60, 231, 0.2) !important;
 }
+
 .table tbody .actions button .success {
-    background: rgba(26, 159, 83, 0.2) !important;
+  background: rgba(26, 159, 83, 0.2) !important;
 }
+
 .table tbody .actions button .error {
-    background: rgba(241, 17, 51, 0.2) !important;
+  background: rgba(241, 17, 51, 0.2) !important;
 }
+
 .table tbody .actions button svg {
-    font-size: 32px !important;
+  font-size: 32px !important;
 }
 
 table.v-align td {
-    vertical-align: middle !important;
+  vertical-align: middle !important;
 }
 
 .tableFooter {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
+
 .tableFooter .pagination {
-    margin-left: auto;
+  margin-left: auto;
 }
+
+body.dark .tableFooter .pagination {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .tableFooter p {
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 0px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
+
+body.dark .tableFooter p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .css-1gaup4j-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-    background-color: #0858f7 !important;
+  background-color: #0858f7 !important;
 }
 
+body.dark .css-1gaup4j-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
 
+body.dark
+  .css-bgvwm1-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark .css-1gaup4j-MuiButtonBase-root-MuiPaginationItem-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+body.dark .css-1gaup4j-MuiButtonBase-root-MuiPaginationItem-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .css-bgvwm1-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark .css-1u6jos5-MuiSvgIcon-root-MuiSelect-icon{
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark .css-r4d5p-MuiSvgIcon-root-MuiSelect-icon{
+    color: rgba(255, 255, 255, 0.7) !important;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Dashboardbox.css";
+import "./DashboardboxResponsive.css"
 import { HiDotsVertical } from "react-icons/hi";
 import Button from "@mui/material/Button";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";

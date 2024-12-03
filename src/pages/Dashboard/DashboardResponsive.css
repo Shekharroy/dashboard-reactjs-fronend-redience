@@ -1,0 +1,56 @@
+@media only screen and (min-width:320px) and (max-width:992px) {
+  .dashboardBoxWrapper {
+      width: 100vw !important;
+      margin-left: -7px !important;
+      margin-bottom: 20px !important;
+      white-space: nowrap !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: block !important;
+      flex-wrap: nowrap !important;
+    }
+
+  .dashboardRowWrapper .box {
+    width: 100% !important;
+    min-width: 101% !important;
+    height: auto !important;
+    margin-left: 7px !important;
+  }
+
+  .dashboardRowWrapper::-webkit-scrollbar {
+    display: none !important;
+  }
+  .tableFooter{
+    flex-direction: column;
+  }
+  .tableFooter nav {
+    margin-top: 25px;
+  }
+
+  .tableFooter nav ul {
+    white-space: nowrap !important;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: block !important;
+    margin-bottom: 20px !important;
+  }
+
+  .tableFooter nav ul li {
+    display: inline-block !important;
+    width: max-content !important;
+    height: auto !important;
+  }
+
+}
+
+@media only screen and (min-width:320px) and (max-width:575px) {
+
+  .dashboardBoxWrapper {
+    white-space: nowrap !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+  }
+}

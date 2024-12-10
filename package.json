@@ -1,5 +1,5 @@
 {
-  "homepage": "http://103.170.58.161/dashboard-reactjs-fronend-redience/",
+  "homepage": "http://103.170.58.161:3001/dashboard-reactjs-fronend-redience/",
   "name": "dashboard-reactjs-fronend-redience",
   "version": "0.1.0",
   "private": true,

@@ -13,6 +13,9 @@ header {
 .res-show {
   display: none !important;
 }
+.IoMenu{
+  display: none !important;
+}
 
 body.dark header {
   background: #112143 !important;

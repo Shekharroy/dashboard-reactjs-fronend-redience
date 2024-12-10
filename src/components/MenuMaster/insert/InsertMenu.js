@@ -27,13 +27,11 @@ const InsertMenu = () => {
         items,
         createUser
       );
-      if (!result.ok) {
-        throw new Error(`HTTP error! status: ${result.status}`);
-      }
       console.warn("result ", result);
       const newUser = { ...result.data };
       setState(newUser);
       localStorage.setItem("Inser-Menu", JSON.stringify(newUser));
+      alert("Data Insert Successfully!")
       return state;
     } catch (error) {
       console.log("Failed to insert users to:", error);
@@ -43,11 +41,11 @@ const InsertMenu = () => {
 
   return (
     <>
-      <div className="container-fluid register mt-0">
-      <div className="card shadow border-0 p-3 mt-5 head ">
+      <div className="container-fluid register mt-0" style={{ maxHeight: "20%", paddingBottom: "2%" }}>
+      <div className="card shadow border-0 p-3 mt-5 head rounded">
         <h3 className="headingRigister">Menu Insert Form</h3>
       </div>
-        <div className="container registerForm">
+        <div className="container registerForm rounded">
           <form className="g-3">
             <div className="row g-2 m-auto px-5">
               <div className="col-md-12">

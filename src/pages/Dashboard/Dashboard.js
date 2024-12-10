@@ -13,14 +13,9 @@ import { PiToolboxFill } from "react-icons/pi";
 import { FaKey } from "react-icons/fa6";
 
 import { Chart } from "react-google-charts";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-
-import Pagination from "@mui/material/Pagination";
-import DataTable from "../../components/User/DataTable";
-import axios from "axios";
 import { MyContext } from "../../App";
-import Footer from "../../components/Footer/Footer";
+import DataTable from "../../components/User/DataTable"
+import TestDataTable from "../../components/testCopm/TestDataTable";
 
 const options = ["None", "Last Day", "Last Week", "Last Month", "Last Year"];
 
@@ -43,10 +38,7 @@ export const chartOptions = {
 
 const Dashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [filterById, setfilterById] = useState("");
-  const [filterByCategory, setfilterByCategory] = useState("");
-  const [filterByName, setfilterByName] = useState("");
-  const [filterByType, setfilterByType] = useState("");
+  
   const [parentIdList, setParentIdList] = useState(null);
 
   useEffect(()=>{
@@ -63,24 +55,20 @@ const Dashboard = () => {
     setAnchorEl(null);
   };
 
-  const handleChange = (event) => {
-    setfilterById(event.target.value);
-  };
-
-  const fetchDataPidList = async () => {
-    const response = await axios.get(
-      "http://103.170.58.161:8080/whatsapp/user/getall",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem('jwtToken')} `},
-      }
-    );
-    setParentIdList(response.data);
-    console.log("responseresponse ==> ",response)
-    return parentIdList;
-  };
+  // const fetchDataPidList = async () => {
+  //   const response = await axios.get(
+  //     "http://103.170.58.161:8080/whatsapp/user/getall",
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //         Authorization: `Bearer ${localStorage.getItem('jwtToken')} `},
+  //     }
+  //   );
+  //   setParentIdList(response.data);
+  //   console.log("responseresponse ==> ",response)
+  //   return parentIdList;
+  // };
 
   
   return (
@@ -157,113 +145,8 @@ const Dashboard = () => {
               />
             </div>
           </div>
-        </div>
-
-        <div className="card shadow border-0 p-3 mt-4 bussinessRepot">
-          <h3 className="hd">Business Report Table</h3>
-
-          <div className="row cardFilters mt-3 p-2">
-            <div className="col-md-3">
-              <h6>BY PARENT ID</h6>
-              <FormControl sx={{ minWidth: "100%" }} size="small">
-                <Select
-                  value={filterById}
-                  onChange={(e) => {
-                    setfilterById(e.target.value);
-                  }}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-
-            <div className="col-md-3">
-              <h6>BY NAME</h6>
-              <FormControl sx={{ minWidth: "100%" }} size="small">
-                <Select
-                  value={filterByName}
-                  onChange={(e) => setfilterByName(e.target.value)}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-
-            <div className="col-md-3">
-              <h6>BY CATEGORY</h6>
-              <FormControl sx={{ minWidth: "100%" }} size="small">
-                <Select
-                  value={filterByCategory}
-                  onChange={(e) => setfilterByCategory(e.target.value)}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-
-            <div className="col-md-3">
-              <h6>STATUS TYPE</h6>
-              <FormControl sx={{ minWidth: "100%" }} size="small">
-                <Select
-                  value={filterByType}
-                  onChange={(e) => setfilterByType(e.target.value)}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-          </div>
-
-          <div className="table-responsive mt-3 w-100 overflow-x-auto">
-            {/* <DataTable/> */}
-            {/* {
-              context.viewUserDetails === true ? <UserDetails/> :<DataTable/>
-            } */}
-            <div className="d-flex tableFooter">
-              <p>
-                showing <b>12</b> of <b>60</b> results
-              </p>
-              <Pagination
-                count={100}
-                color="primary"
-                className="pagination"
-                showFirstButton
-                showLastButton
-              />
-            </div>
-          </div>
-          {/* <div className="card shadow border-0 p-3 mt-4 bussinessRepot b2class">
-            <Footer />
-          </div> */}
-          {/* <Footer /> */}
+          <DataTable/>
+          {/* <TestDataTable/> */}
         </div>
       </div>
     </>

@@ -9,6 +9,9 @@
   .res-hide{
     display: none !important;
   } 
+  .IoMenu{
+    display: block !important;
+  }
 
   header .part-1,
   header .part-3 {

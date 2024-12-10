@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-logo">
           <Link to={"/"} className="logo d-flex align-items-center justify-content-center">
             <img alt="Rediance Logo" src={logo} />
-            <span className="ms-1 text">Rediance</span>
+            <span className="ms-1 text">Radiance</span>
           </Link>
         </div>
         <div className="footer-text">

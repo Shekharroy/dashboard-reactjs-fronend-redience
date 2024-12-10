@@ -60,7 +60,12 @@ function App() {
   }, []);
 
   const openNav = () => {
-    setIsOpenNav(true);
+    if(isOpenNav === false){
+      setIsOpenNav(true);
+    }else{
+      setIsOpenNav(false)
+    }
+    
   };
 
   const values = {

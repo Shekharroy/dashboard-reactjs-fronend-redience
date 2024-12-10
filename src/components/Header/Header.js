@@ -90,7 +90,7 @@ const Header = () => {
             <div className="col-sm-2 part-1">
               <Link to={"/"} className="logo d-flex align-items-center">
                 <img alt="Radiance-Solutions-logo.png" src={logo} />
-                <span className="ms-1">Rediance</span>
+                <span className="ms-1">Radiance</span>
               </Link>
             </div>
             {context.windowWidth > 992 && (
@@ -692,7 +692,7 @@ const Header = () => {
                 </div>
               </Menu>
 
-              <Button className="rounded-circle me-4" onClick={()=>context.openNav()}>
+              <Button className="rounded-circle me-4 IoMenu" onClick={()=>context.openNav()}>
                 <IoMenu />
               </Button>
 

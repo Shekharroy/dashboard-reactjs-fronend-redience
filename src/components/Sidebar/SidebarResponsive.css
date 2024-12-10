@@ -12,7 +12,7 @@
     }
 
     .main .sidebarWrapper .sidebar {
-        width: 100% !important;
+        width: 65% !important;
         position: relative !important;
         top: 0px !important;
         max-height: inherit !important;
@@ -49,5 +49,12 @@
         margin-right: 15px !important;
     }
     
+}
+
+@media only screen and (min-width:320px) and (max-width:575px) {
+
+    .main .sidebarWrapper .sidebar {
+        width: 100% !important;
+    }
 }
 

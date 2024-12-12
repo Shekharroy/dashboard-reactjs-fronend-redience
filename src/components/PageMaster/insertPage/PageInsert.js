@@ -46,11 +46,11 @@ const PageInsert = () => {
 
   return (
     <>
-      <div className="container-fluid register mt-0">
-        <div className="card shadow border-0 p-3 mt-5 head ">
+      <div className="container-fluid register mt-0" style={{ maxHeight: "20%", paddingBottom: "2%" }}>
+        <div className="card shadow border-0 p-3 mt-5 head rounded ">
           <h3 className="headingRigister">Page Insert Form</h3>
         </div>
-        <div className="container registerForm">
+        <div className="container registerForm rounded">
           <form className="g-3">
             <div className="row g-2 m-auto px-5">
               <div className="col-md-12">

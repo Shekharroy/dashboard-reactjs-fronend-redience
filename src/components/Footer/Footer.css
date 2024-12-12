@@ -35,8 +35,11 @@
     width: 100%;
     height: 70px;
 }
+body.light .footer-text {
+  color: #292929 !important;
+}
 body.dark .footer-logo .logo span, .footer-text {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
   .footer-logo .logo img {

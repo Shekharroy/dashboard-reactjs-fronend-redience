@@ -79,7 +79,7 @@ const Register = () => {
   return (
     <>
       <div className="container-fluid register mt-0">
-      <div className="card shadow border-0 p-3 mt-5 head ">
+      <div className="card shadow border-0 p-3 mt-5 head rounded ">
         <h3 className="headingRigister">User Registration Form</h3>
       </div>
         <div className="container registerForm">

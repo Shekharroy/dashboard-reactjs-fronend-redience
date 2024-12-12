@@ -229,7 +229,7 @@ function DataTable() {
             ))}
           </tbody>
         </Table>
-        <div className="d-flex align-items-center justify-content-end pagination-responsive">
+        <div className="d-flex align-items-center justify-content-end pagination-responsive ">
           <Button
             color="primary"
             className="pagination"

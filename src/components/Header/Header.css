@@ -147,7 +147,7 @@ body.dark .MuiPaper-elevation li *,body.dark .MuiPaper-elevation li {
 */
 
 #notifications .MuiPaper-elevation {
-  right: 215px !important;
+  right: 261px !important;
   left: auto !important;
   top: 61px !important;
   width: 300px !important;
@@ -215,7 +215,7 @@ Message Notification
 */
 
 #messages .MuiPaper-elevation {
-  right: 280px !important;
+  right: 327px !important;
   left: auto !important;
   top: 61px !important;
   width: 300px !important;

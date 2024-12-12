@@ -79,6 +79,9 @@ body.dark .card .hd {
 body.dark .cardFilters .col-md-3 h6 {
   color: rgba(255, 255, 255, 0.9);
 }
+body.dark .table {
+  border-color: rgba(255, 255, 255, 0.1) !important;;
+}
 
 .table .table-dark th {
   background-color: #1866ee !important;
@@ -87,9 +90,9 @@ body.dark .cardFilters .col-md-3 h6 {
   text-transform: uppercase !important;
 }
 
-body.dark .table .table-dark th {
-    background-color: transparent !important;
-}
+/* body.dark .table .table-dark tr td {
+  background: #112143 !important;
+} */
 
 h1,
 h2,
@@ -109,14 +112,22 @@ body.dark h6 {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
+body.dark .bg-white {
+  background-color: #112143 !important;
+}
+
 .table tbody td {
   font-size: 13px !important;
   color: #403e57 !important;
   font-weight: 500;
+  
 }
 
 body.dark .table tbody td {
+  background-color: #112143 !important;
   color: rgba(255, 255, 255, 0.5) !important;
+  border:1px solid rgba(255, 255, 255, 0.5) !important;
+
 }
 
 body.dark .table-bordered td, body.dark .table-bordered th {
@@ -156,8 +167,13 @@ table.v-align td {
 .tableFooter .pagination {
   margin-left: auto;
 }
+body.dark .pagination-responsive{
+  background-color: #112143;
+  color: rgba(255, 255, 255, 0.7);
+}
 
-body.dark .tableFooter .pagination {
+body.dark .pagination {
+  background-color: #112143;
   color: rgba(255, 255, 255, 0.7);
 }
 

@@ -14,7 +14,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-text">
-          &copy; 2024 Rediance. All rights reserved.
+          &copy; 2024 Radiance. All rights reserved.
         </div>
       </div>
     </footer>

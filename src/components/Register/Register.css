@@ -6,6 +6,10 @@
     bottom: 0px;
     left: 0px;
 }
+
+body.dark .register {
+  background: #112143;
+}
 .head {
   position: relative;
   border-radius: 0% !important;
@@ -33,6 +37,11 @@
     margin: 50px auto;
     padding:20px;
     background: #fff;
+}
+
+body.dark .registerForm, body.dark .registerForm input, body.dark .registerForm .form-label {
+  background: #112143;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .registerForm .logo {
     text-decoration: none;
